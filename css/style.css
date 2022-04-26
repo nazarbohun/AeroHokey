@@ -1,0 +1,246 @@
+body {
+   background: #212121;
+}
+
+.container {
+   max-width: 1270px;
+   margin: 0 auto;
+   height: 100vh;
+}
+
+.main__top {
+   height: 100px;
+   width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+   color: Gold;
+   text-shadow: 0 0 15px Gold;
+}
+
+.score {
+   font-size: 50px;
+
+}
+
+.score-left {
+   color: #3c17be;
+   text-shadow: 0 0 15px #3c17be;
+}
+
+.score-right {
+   color: #9b0303;
+   text-shadow: 0 0 15px #9b0303;
+}
+
+.timer {
+   font-size: 55px;
+   color: Gold;
+   text-shadow: 0 0 15px Gold;
+}
+
+.main__general {
+   height: calc(100vh - 100px);
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 30px 40px;
+}
+
+.game-field {}
+
+.field {
+   /* background: rgb(63, 35, 35); */
+   width: 90%;
+   height: 100%;
+   border-radius: 10px;
+   overflow: hidden;
+   border: 5px solid #c0c0c0;
+   position: relative;
+
+   padding: 0.4em;
+   box-shadow: 0 0 .2rem #fff,
+      0 0 .2rem #fff,
+      0 0 2rem #c0c0c0,
+      0 0 0.8rem #c0c0c0,
+      0 0 2.8rem #c0c0c0,
+      inset 0 0 .3rem #c0c0c0;
+}
+
+.field::before {
+   content: '';
+   height: 100%;
+   width: 5px;
+   background: #c0c0c0;
+   position: absolute;
+   left: 50%;
+   top: 0;
+   transform: translateX(-50%);
+}
+
+.field::after {
+   content: '';
+   height: 150px;
+   width: 150px;
+   border-radius: 50%;
+   border: 5px solid #c0c0c0;
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   transform: translate(-50%, -50%);
+}
+
+.bit-ball {
+
+   margin: 50px;
+
+   height: 60px;
+   width: 60px;
+   border-radius: 50%;
+   position: absolute;
+}
+
+.bit-ball--left {
+   background: #28237a;
+   animation: pulsate-left 1.5s infinite alternate;
+   border: 0.2rem solid #fff;
+   padding: 0.4em;
+   box-shadow: 0 0 .2rem #fff,
+      0 0 .2rem #fff,
+      0 0 2rem #28237a,
+      0 0 0.8rem #28237a,
+      0 0 2.8rem #28237a,
+      inset 0 0 1.3rem #28237a;
+
+   top: 10px;
+   left: 10px;
+}
+
+.bit-ball--right {
+   background: #ca4d62;
+   animation: pulsate-right 1.5s infinite alternate;
+   border: 0.2rem solid #fff;
+   padding: 0.4em;
+   box-shadow: 0 0 .2rem #fff,
+      0 0 .2rem #fff,
+      0 0 2rem #ca4d62,
+      0 0 0.8rem #ca4d62,
+      0 0 2.8rem #ca4d62,
+      inset 0 0 1.3rem #ca4d62;
+
+   top: 100px;
+   right: 10px;
+}
+
+.puck {
+   background: #c0c0c0;
+   animation: pulsate-puck 1.5s infinite alternate;
+   border: 0.2rem solid #fff;
+   padding: 0.4em;
+   box-shadow: 0 0 .2rem #fff,
+      0 0 .2rem #fff,
+      0 0 2rem #c0c0c0,
+      0 0 0.8rem #c0c0c0,
+      0 0 2.8rem #c0c0c0,
+      inset 0 0 1.3rem #c0c0c0;
+
+   top: 100px;
+   left: 100px;
+}
+
+
+/* ======== Animations =======*/
+
+@keyframes pulsate-left {
+
+   100% {
+
+      box-shadow:
+         0 0 4px #fff,
+         0 0 11px #fff,
+         0 0 19px #fff,
+         0 0 40px #28237a,
+         0 0 80px #28237a,
+         0 0 90px #28237a,
+         0 0 100px #28237a,
+         0 0 150px #28237a;
+
+   }
+
+   0% {
+
+      box-shadow:
+         0 0 2px #fff,
+         0 0 4px #fff,
+         0 0 6px #fff,
+         0 0 10px #28237a,
+         0 0 45px #28237a,
+         0 0 55px #28237a,
+         0 0 70px #28237a,
+         0 0 80px #28237a;
+
+   }
+}
+
+@keyframes pulsate-right {
+
+   100% {
+
+      box-shadow:
+         0 0 4px #fff,
+         0 0 11px #fff,
+         0 0 19px #fff,
+         0 0 40px #ca4d62,
+         0 0 80px #ca4d62,
+         0 0 90px #ca4d62,
+         0 0 100px #ca4d62,
+         0 0 150px #ca4d62;
+
+   }
+
+   0% {
+
+      box-shadow:
+         0 0 2px #fff,
+         0 0 4px #fff,
+         0 0 6px #fff,
+         0 0 10px #ca4d62,
+         0 0 45px #ca4d62,
+         0 0 55px #ca4d62,
+         0 0 70px #ca4d62,
+         0 0 80px #ca4d62;
+
+   }
+}
+
+@keyframes pulsate-puck {
+
+   100% {
+
+      box-shadow:
+         0 0 4px #fff,
+         0 0 11px #fff,
+         0 0 19px #fff,
+         0 0 40px #c0c0c0,
+         0 0 80px #c0c0c0,
+         0 0 90px #c0c0c0,
+         0 0 100px #c0c0c0,
+         0 0 150px #c0c0c0;
+
+   }
+
+   0% {
+
+      box-shadow:
+         0 0 2px #fff,
+         0 0 4px #fff,
+         0 0 6px #fff,
+         0 0 10px #c0c0c0,
+         0 0 45px #c0c0c0,
+         0 0 55px #c0c0c0,
+         0 0 70px #c0c0c0,
+         0 0 80px #c0c0c0;
+
+   }
+}
