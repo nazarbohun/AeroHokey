@@ -6,6 +6,8 @@ body {
    max-width: 1270px;
    margin: 0 auto;
    height: 100vh;
+
+   display: none;
 }
 
 .main__top {
@@ -148,6 +150,51 @@ body {
    top: 100px;
    left: 100px;
 }
+
+.welckome {
+   height: 100vh;
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.welckome__text {
+   font-size: 100px;
+   font-family: 'Sacramento', cursive;
+
+   color: #fff;
+   text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #bc13fe,
+      0 0 82px #bc13fe,
+      0 0 92px #bc13fe,
+      0 0 102px #bc13fe,
+      0 0 151px #bc13fe;
+
+}
+
+.welckome__btn {
+   display: block;
+   width: fit-content;
+   padding: 7px 15px;
+   margin: 0 auto;
+   border-radius: 10px;
+   font-size: 24px;
+   color: #fff;
+   border: 1px solid #fff;
+   transition: transform 1s cubic-bezier(.18, 1, .24, 1);
+   transform: scale(1);
+}
+
+@media (any-hover: hover) {
+   .welckome__btn:hover {
+      transform: scale(1.1);
+   }
+}
+
 
 
 /* ======== Animations =======*/
