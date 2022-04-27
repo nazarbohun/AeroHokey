@@ -7,7 +7,7 @@ body {
    margin: 0 auto;
    height: 100vh;
 
-   display: none;
+   /* display: none; */
 }
 
 .main__top {
@@ -31,8 +31,8 @@ body {
 }
 
 .score-right {
-   color: #9b0303;
-   text-shadow: 0 0 15px #9b0303;
+   color: #ca4d62;
+   text-shadow: 0 0 15px #ca4d62;
 }
 
 .timer {
@@ -51,6 +51,32 @@ body {
 }
 
 .game-field {}
+
+.game-field::before {
+   content: '';
+   height: 200px;
+   width: 200px;
+   border-radius: 50%;
+   border: 5px solid #c0c0c0;
+   position: absolute;
+   left: 0;
+   top: 50%;
+   transform: translate(-50%, -50%);
+   overflow: hidden;
+}
+
+.game-field::after {
+   content: '';
+   height: 200px;
+   width: 200px;
+   border-radius: 50%;
+   border: 5px solid #c0c0c0;
+   position: absolute;
+   right: 0;
+   top: 50%;
+   transform: translate(50%, -50%);
+   overflow: hidden;
+}
 
 .field {
    /* background: rgb(63, 35, 35); */
@@ -101,19 +127,20 @@ body {
    width: 60px;
    border-radius: 50%;
    position: absolute;
+   z-index: 2;
 }
 
 .bit-ball--left {
-   background: #28237a;
+   background: #3c17be;
    animation: pulsate-left 1.5s infinite alternate;
    border: 0.2rem solid #fff;
    padding: 0.4em;
    box-shadow: 0 0 .2rem #fff,
       0 0 .2rem #fff,
-      0 0 2rem #28237a,
-      0 0 0.8rem #28237a,
-      0 0 2.8rem #28237a,
-      inset 0 0 1.3rem #28237a;
+      0 0 2rem #3c17be,
+      0 0 0.8rem #3c17be,
+      0 0 2.8rem #3c17be,
+      inset 0 0 1.3rem #3c17be;
 
    top: 10px;
    left: 10px;
@@ -151,12 +178,16 @@ body {
    left: 100px;
 }
 
+/* Экран СТАРТ игры */
+
 .welcome {
    height: 100vh;
    width: 100%;
    display: flex;
    justify-content: center;
    align-items: center;
+
+   display: none;
 }
 
 .welcome__text {
@@ -195,9 +226,59 @@ body {
    }
 }
 
+/* экран ГОЛ */
+
+.goal {
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100vh;
+   z-index: 5;
+   backdrop-filter: blur(10px);
+}
+
+.goal__content {
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   font-size: 100px;
+   text-transform: uppercase;
+   transform: translate(-50%, -50%);
+}
+
+.goal h2 {
+   font-family: "Monoton", Helvetica, sans-serif;
+   display: inline;
+   font-size: 110px;
+   text-transform: uppercase;
+   animation: move .5s ease-in-out infinite;
+   letter-spacing: 1.5rem;
+}
 
 
 /* ======== Animations =======*/
+
+
+@supports (-webkit-background-clip: text) {
+
+   @keyframes move {
+      0% {
+         transform: translate(-30%, 0);
+      }
+
+      50% {
+         color: transparent;
+         background: linear-gradient(7deg, #ffd700 50%, #ffe760 0);
+         text-shadow: 5px 5px #558ABB;
+         -webkit-background-clip: text;
+      }
+
+      100% {
+         transform: translate(-30%, 0);
+      }
+   }
+}
 
 @keyframes pulsate-left {
 
@@ -207,11 +288,11 @@ body {
          0 0 4px #fff,
          0 0 11px #fff,
          0 0 19px #fff,
-         0 0 40px #28237a,
-         0 0 80px #28237a,
-         0 0 90px #28237a,
-         0 0 100px #28237a,
-         0 0 150px #28237a;
+         0 0 40px #3c17be,
+         0 0 80px #3c17be,
+         0 0 90px #3c17be,
+         0 0 100px #3c17be,
+         0 0 150px #3c17be;
 
    }
 
@@ -221,11 +302,11 @@ body {
          0 0 2px #fff,
          0 0 4px #fff,
          0 0 6px #fff,
-         0 0 10px #28237a,
-         0 0 45px #28237a,
-         0 0 55px #28237a,
-         0 0 70px #28237a,
-         0 0 80px #28237a;
+         0 0 10px #3c17be,
+         0 0 45px #3c17be,
+         0 0 55px #3c17be,
+         0 0 70px #3c17be,
+         0 0 80px #3c17be;
 
    }
 }
