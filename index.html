@@ -19,18 +19,18 @@
       <div class="container">
 
          <div class="main__top">
-            <div class="score score-left">00</div>
-            <div class="timer">00</div>
-            <div class="score score-right">00</div>
+            <div class="score score-left" id="score-user">00</div>
+            <div class="timer" id="timer">00</div>
+            <div class="score score-right" id="score-opponent">00</div>
          </div>
 
          <div class="main__general">
-            <div class="field">
+            <div class="field" id="field">
                <div class="game-field">
                   <!-- Потом удалить и создавать через JS -->
-                  <div class="bit-ball bit-ball--left"></div>
-                  <div class="bit-ball bit-ball--right"></div>
-                  <div class="bit-ball puck"></div>
+                  <div class="bit-ball bit-ball--left" id="bit-user"></div>
+                  <div class="bit-ball bit-ball--right" id="bit-opponent"></div>
+                  <div class="bit-ball puck" id="puck"></div>
 
                </div>
             </div>
@@ -40,18 +40,18 @@
 
 
       <!-- Экран приветствие -->
-      <div class="welcome">
+      <div class="welcome" id="welcome">
          <div class="welcome__content">
             <div class="welcome__text">
                Aero Hockey
             </div>
-            <a href="#" class="welcome__btn">Get strarted</a>
+            <a href="#" class="welcome__btn" id="start-game">Get strarted</a>
          </div>
       </div>
 
 
       <!-- Надпись ГОЛ -->
-      <div class="goal">
+      <div class="goal" id="goal">
          <div class="goal__content">
             <h2>Goal!!!</h2>
          </div>
