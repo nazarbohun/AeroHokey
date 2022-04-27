@@ -8,3 +8,4 @@ const screenWelcome = document.querySelector('#welcome');
 const puck = document.querySelector('#puck');
 const btnStart = document.querySelector('#start-game');
 const screenGoal = document.querySelector('#goal');
+const screenGame = document.querySelector('#screen-game');
