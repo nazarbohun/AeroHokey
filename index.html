@@ -25,12 +25,14 @@
          </div>
 
          <div class="main__general">
-            <div class="game-field field">
+            <div class="field">
+               <div class="game-field">
+                  <!-- Потом удалить и создавать через JS -->
+                  <div class="bit-ball bit-ball--left"></div>
+                  <div class="bit-ball bit-ball--right"></div>
+                  <div class="bit-ball puck"></div>
 
-               <!-- Потом удалить и создавать через JS -->
-               <div class="bit-ball bit-ball--left"></div>
-               <div class="bit-ball bit-ball--right"></div>
-               <div class="bit-ball puck"></div>
+               </div>
             </div>
          </div>
 
@@ -38,15 +40,25 @@
 
 
       <!-- Экран приветствие -->
-      <div class="welckome">
-         <div class="welckome__content">
-            <div class="welckome__text">
+      <div class="welcome">
+         <div class="welcome__content">
+            <div class="welcome__text">
                Aero Hockey
             </div>
-            <a href="#" class="welckome__btn">Get strarted</a>
+            <a href="#" class="welcome__btn">Get strarted</a>
+         </div>
+      </div>
+
+
+      <!-- Надпись ГОЛ -->
+      <div class="goal">
+         <div class="goal__content">
+            <h2>Goal!!!</h2>
          </div>
       </div>
    </main>
+
+   <script src="./js/main.js"></script>
 
 </body>
 
