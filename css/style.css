@@ -7,7 +7,7 @@ body {
    margin: 0 auto;
    height: 100vh;
 
-   /* display: none; */
+   display: none; 
 }
 
 .main__top {
@@ -50,7 +50,7 @@ body {
    padding: 30px 40px;
 }
 
-.game-field {}
+
 
 .game-field::before {
    content: '';
@@ -187,7 +187,7 @@ body {
    justify-content: center;
    align-items: center;
 
-   display: none;
+   display: block;
 }
 
 .welcome__text {
@@ -236,6 +236,7 @@ body {
    height: 100vh;
    z-index: 5;
    backdrop-filter: blur(10px);
+	display:none;
 }
 
 .goal__content {
@@ -370,5 +371,93 @@ body {
          0 0 70px #c0c0c0,
          0 0 80px #c0c0c0;
 
+   }
+}
+
+.endgame{
+	height: 100vh;
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   display: block;
+}
+
+
+.winner{
+	display: flex;
+	justify-content: center;
+	margin: 0 100px;
+   font-size: 100px;
+   font-family: 'Sacramento', cursive;
+
+   color: #fff;
+   text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #1c9354,
+      0 0 82px #1c9354,
+      0 0 92px #1c9354,
+      0 0 102px #1c9354,
+      0 0 151px #1c9354;
+}
+
+.loser{
+	display: flex;
+	justify-content: center;
+	margin: 0 100px;
+   font-size: 100px;
+   font-family: 'Sacramento', cursive;
+
+   color: #fff;
+   text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #9f1616,
+      0 0 82px #9f1616,
+      0 0 92px #9f1616,
+      0 0 102px #9f1616,
+      0 0 151px #9f1616;
+}
+
+.draw {
+	display: flex;
+	justify-content: center;
+	margin: 0 100px;
+   font-size: 100px;
+   font-family: 'Sacramento', cursive;
+
+   color: #fff;
+   text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #e1ba0b,
+      0 0 82px #e1ba0b,
+      0 0 92px #e1ba0b,
+      0 0 102px #e1ba0b,
+      0 0 151px #e1ba0b;
+}
+
+.restart__btn{
+	display: block;
+   width: fit-content;
+   padding: 7px 15px;
+   margin: 0 auto;
+   border-radius: 10px;
+   font-size: 24px;
+   color: #fff;
+   border: 1px solid #fff;
+   transition: transform 1s cubic-bezier(.18, 1, .24, 1);
+   transform: scale(1);
+}
+
+
+
+@media (any-hover: hover) {
+   .restart__btn:hover {
+      transform: scale(1.1);
    }
 }
