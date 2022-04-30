@@ -119,6 +119,13 @@ body {
 }
 
 .bit-ball {
+   height: 80px;
+   width: 80px;
+   border-radius: 50%;
+   position: absolute;
+   z-index: 2;
+}
+.bit-puck {
    height: 60px;
    width: 60px;
    border-radius: 50%;
@@ -138,8 +145,8 @@ body {
       0 0 2.8rem #3c17be,
       inset 0 0 1.3rem #3c17be;
 
-   top: 10px;
-   left: 10px;
+   top: 100px;
+   left: 100px;
 }
 
 .bit-ball--right {
@@ -170,8 +177,8 @@ body {
       0 0 2.8rem #c0c0c0,
       inset 0 0 1.3rem #c0c0c0;
 
-   top: 100px;
-   left: 100px;
+   top: calc(50% - 30px);
+   left: calc(50% - 30px);
 }
 
 /* Экран СТАРТ игры */
