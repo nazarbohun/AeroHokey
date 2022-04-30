@@ -1,3 +1,17 @@
+const scoreUser = document.querySelector('#score-user');
+const scoreOpponent = document.querySelector('#score-opponent');
+const timer = document.querySelector('#timer');
+const timerStart = document.querySelector('#timer-reverse');
+const field = document.querySelector('#field');
+const bitUser = document.querySelector('#bit-user');
+const bitOpponent = document.querySelector('#bit-opponent');
+const puck = document.querySelector('#puck');
+const btnStart = document.querySelector('#start-game');
+const screenWelcome = document.querySelector('#welcome');
+const screenGame = document.querySelector('#screen-game');
+const screenGoal = document.querySelector('#goal');
+const screenTimerReverse = document.querySelector('#timer-reverse__block');
+
 
 // Функции включения экранов
 const showWelcomeScreen = function () {
@@ -27,26 +41,17 @@ const showScreenTimerReverse = function () {
    screenGoal.style.display = 'none';
    screenTimerReverse.style.display = 'block';
 }
- ball = new Ball();
- controller = new Controller();
- let controllerEnemy = new Controller();
- controllerEnemy.acceleration = 0.2;
- controllerEnemy.controller_html.className = "bit-ball bit-ball--right";
- controllerEnemy.controller_html.id = "bit-opponent";
- controllerEnemy.isRight = 0;
 
-   controllers.push(controller,controllerEnemy);
 // Старт игры
 showWelcomeScreen();
 btnStart.onclick = function () {
    showScreenTimerReverse();
 
    // Таймер обратного отсчёта
-   let count = 3;
-
+   let count = 2;
 
    const timerRevers = setInterval(() => {
-      if (count != 0) {
+      if (count > 0) {
          timerStart.innerHTML = count;
          count--;
       } else {
@@ -55,6 +60,7 @@ btnStart.onclick = function () {
          fieldLeftEnd = field.clientWidth - ballSize;
          boardCenterX = field.clientWidth /2;
          clearInterval(timerRevers);
+         timerGame();
          // createBall();
          ball.create();
          controller.create();
@@ -64,6 +70,56 @@ btnStart.onclick = function () {
 
       }
    }, 1000)
+}
+
+
+// Таймер игры
+
+let sec = 59;
+let minute = 2;
+let go = false;
+
+function timerGame() {
+   if (go) {
+      return
+   }
+
+   sec--;
+
+   if (sec < 0) {
+      sec = 59;
+      addMinute();
+   }
+   timerMinute.innerHTML = minute;
+   if (sec < 10) {
+      timerSec.innerHTML = `0${sec}`;
+   } else {
+      timerSec.innerHTML = sec;
+   }
+
+   const timer = setTimeout(timerGame, 1000);
+
+   if (minute === 0 && sec === 0) {
+      console.log('Eng');
+      stopTimer();
+      clearTimeout(timer);
+   }
+}
+
+function addMinute() {
+   minute--;
+   timerMinute.innerHTML = minute;
+}
+
+// Остановка таймера когда забит гол!
+function stopTimer() {
+   go = true;
+}
+
+// Возобновить таймер после гола
+function startTimer() {
+   go = false;
+   timerGame();
 }
 
 // Events

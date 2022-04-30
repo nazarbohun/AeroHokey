@@ -19,9 +19,9 @@
       <div class="container" id="screen-game">
 
          <div class="main__top">
-            <div class="score score-left" id="score-user">00</div>
-            <div class="timer" id="timer">00</div>
-            <div class="score score-right" id="score-opponent">00</div>
+            <div class="score score-left" id="score-user">0</div>
+            <div class="timer"><span id="timer-min">0</span> : <span id="timer-sec">0</span></div>
+            <div class="score score-right" id="score-opponent">0</div>
          </div>
 
          <div class="main__general">
@@ -59,15 +59,34 @@
       <!-- Таймер обратного отсчёта -->
       <div class="timer-reverse" id="timer-reverse__block">
          <div class="timer-reverse__content">
-            <h2 id="timer-reverse"></h2>
+            <h2 id="timer-reverse">3</h2>
          </div>
       </div>
 
 
-      <!-- Надпись ГОЛ -->
-      <div class="goal" id="goal">
-         <div class="goal__content">
-            <h2>Goal!!!</h2>
+      <!--Конец ИГРЫ-->
+
+      <!--Победа-->
+      <div class="endgame">
+         <div class="endgame__context">
+            <div class="winner">You won!</div>
+            <a href="#" class="restart__btn">Restart</a>
+         </div>
+      </div>
+
+      <!--Поражение-->
+      <div class="endgame">
+         <div class="endgame__context">
+            <div class="loser">You lose...</div>
+            <a href="#" class="restart__btn">Restart</a>
+         </div>
+      </div>
+
+      <!--Ничья-->
+      <div class="endgame">
+         <div class="endgame__context">
+            <div class="draw">Draw</div>
+            <a href="#" class="restart__btn">Restart</a>
          </div>
       </div>
 
