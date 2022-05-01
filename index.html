@@ -16,21 +16,17 @@
    <main>
 
       <!-- Игровое поле -->
-      <div class="container">
+      <div class="container" id="screen-game">
 
          <div class="main__top">
-            <div class="score score-left">00</div>
-            <div class="timer">00</div>
-            <div class="score score-right">00</div>
+            <div class="score score-left" id="score-user">0</div>
+            <div class="timer"><span id="timer-min">0</span> : <span id="timer-sec">0</span></div>
+            <div class="score score-right" id="score-opponent">0</div>
          </div>
 
          <div class="main__general">
-            <div class="field">
+            <div class="field" id="field">
                <div class="game-field">
-                  <!-- Потом удалить и создавать через JS -->
-                  <div class="bit-ball bit-ball--left"></div>
-                  <div class="bit-ball bit-ball--right"></div>
-                  <div class="bit-ball puck"></div>
 
                </div>
             </div>
@@ -40,24 +36,64 @@
 
 
       <!-- Экран приветствие -->
-      <div class="welcome">
+      <div class="welcome" id="welcome">
          <div class="welcome__content">
             <div class="welcome__text">
                Aero Hockey
             </div>
-            <a href="#" class="welcome__btn">Get strarted</a>
+            <a href="#" class="welcome__btn" id="start-game">Get strarted</a>
          </div>
       </div>
 
 
       <!-- Надпись ГОЛ -->
-      <div class="goal">
+      <div class="goal" id="goal">
          <div class="goal__content">
             <h2>Goal!!!</h2>
          </div>
       </div>
-   </main>
 
+
+      <!-- Таймер обратного отсчёта -->
+      <div class="timer-reverse" id="timer-reverse__block">
+         <div class="timer-reverse__content">
+            <h2 id="timer-reverse">3</h2>
+         </div>
+      </div>
+
+
+      <!--Конец ИГРЫ-->
+
+      <!--Победа-->
+      <div class="endgame" id="endgame_won">
+         <div class="endgame__context" >
+            <div class="winner">You won!</div>
+            <button class="restart__btn">Restart</button>
+         </div>
+      </div>
+
+      <!--Поражение-->
+      <div class="endgame" id="endgame_lose">
+         <div class="endgame__context" >
+            <div class="loser">You lose...</div>
+            <button class="restart__btn">Restart</button>
+         </div>
+      </div>
+
+      <!--Ничья-->
+      <div class="endgame" id="endgame_draw">
+         <div class="endgame__context">
+            <div class="draw">Draw</div>
+            <button class="restart__btn">Restart</button>
+         </div>
+      </div>
+
+   </main>
+   <script src="./js/variables.js"></script>
+   <script src="./js/ball.js"></script>
+   <script src="./js/controller.js"></script>
+   <script src="./js/functions.js"></script>
+   <script src="./js/events.js"></script>
    <script src="./js/main.js"></script>
 
 </body>
