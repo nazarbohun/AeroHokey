@@ -66,8 +66,8 @@ body {
 
 .game-field::before {
    content: '';
-   height: 200px;
-   width: 200px;
+   height: 300px;
+   width: 300px;
    border-radius: 50%;
    border: 5px solid #c0c0c0;
    position: absolute;
@@ -79,8 +79,8 @@ body {
 
 .game-field::after {
    content: '';
-   height: 200px;
-   width: 200px;
+   height: 300px;
+   width: 300px;
    border-radius: 50%;
    border: 5px solid #c0c0c0;
    position: absolute;
@@ -157,7 +157,7 @@ body {
       0 0 2.8rem #3c17be,
       inset 0 0 1.3rem #3c17be;
 
-   top: 100px;
+   top: 343px;
    left: 100px;
 }
 
@@ -173,8 +173,8 @@ body {
       0 0 2.8rem #ca4d62,
       inset 0 0 1.3rem #ca4d62;
 
-   top: 100px;
-   right: 10px;
+   top: 343px;
+   left: 696px;
 }
 
 .puck {
@@ -190,7 +190,7 @@ body {
       inset 0 0 1.3rem #c0c0c0;
 
    top: calc(50% - 30px);
-   left: calc(50% - 30px);
+   left: calc(50% - 120px);
 }
 
 /* Экран СТАРТ игры */

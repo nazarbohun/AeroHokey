@@ -1,90 +1,101 @@
-function rotate(x, y, sin, cos, reverse) {
-    return {
-        x: (reverse) ? (x * cos + y * sin) : (x * cos - y * sin),
-        y: (reverse) ? (y * cos - x * sin) : (y * cos + x * sin)
-    };
-}
-
+// М`яч
 function Ball() {
-
+    // Основні зміння для м`яча
     this.ball_html = document.createElement("div");
     this.ball_html.className = "bit-puck puck";
     this.ball_html.id = "puck"
     this.x = 0;
     this.y = 0;
-    this.size = 60;
-    this.mass = 15;
-    this.velocityX = 10;
-    this.velocityY = 8;
+    this.size = ballSizeEnv;
+    this.mass = ballMassEnv;
+    this.velocityX = 0;
+    this.velocityY = 0;
     this.maxSpeed = 10;
-    this.frictionX = 0.997;
-    this.frictionY = 0.997;
+    this.frictionX = frictionXEnv;
+    this.frictionY = frictionYEnv;
     this.acceleration = 1;
+    this.startingPosX = 0;
+    this.startingPosY = 0;
 
-    this.draw = function() {
+    // Переміщає м`яч
+    this.run = function() {
 
         this.ball_html.style.top = this.y + "px";
         this.ball_html.style.left = this.x + "px";
 
     };
-    this.keepPuckInBoard = function() {
 
-        // Determine if disc is to far right or left
-        // Need to determine if goal scored on x axis as well
+    // Утримує координати в межах борду
+    this.keepInBoard = function() {
+
         if (this.x > fieldLeftEnd || this.x < 0) {
 
-            // Stop puck from getting stuck
+
             if (this.x > fieldLeftEnd) {
                 this.x = fieldLeftEnd;
             } else {
                 this.x = 0;
             }
 
-            // Check to see if goal scored
-            // if (this.y > (goalPosTop + puck.radius) && this.y < (goalPosTop + goalHeight) - puck.radius) {
-            //     // Add new puck
-            //     puck = new Disc(boardCenterX, boardCenterY);
-            // } else {
-            //     // Reverse X direction
+
+            if (this.y > (goalPosTop - goalHeight/2 - this.size /3) && this.y < (goalPosTop + goalHeight/2) - (this.size * 2/3 )) {
+
+               goal();
+            } else {
+
                 this.velocityX = -this.velocityX;
-            // }
+            }
         }
 
-        // Determine if disc is to far up or down
+
         if (this.y > fieldTopEnd || this.y < 0) {
 
-            // Stop puck from getting stuck
+
             if (this.y > fieldTopEnd) {
                 this.y = fieldTopEnd;
             } else {
                 this.y = 0;
             }
 
-            // Reverse direction
             this.velocityY = -this.velocityY;
         }
 
     };
 
+    // Змінює координати
     this.move = function() {
 
-        // Apply friction
+
         this.velocityX *= this.frictionX;
         this.velocityY *= this.frictionY;
 
-        // Update position
+
         this.x += this.velocityX;
         this.y += this.velocityY;
     };
 
+    // Створює html шаріка
     this.create = function (){
-        field.appendChild(this.ball_html);
-        this.x = this.ball_html.offsetLeft;
-        this.y = this.ball_html.offsetTop;
+        gameField.appendChild(this.ball_html);
+        this.x = this.startingPosX;
+        this.y = this.startingPosY;
+
+        this.run();
 
 
     };
-    this.discCollision = function() {
+
+    // Видаляє html шаріка
+    this.removeHtmlElement = function (){
+       this.ball_html.remove();
+        this.velocityX = 0;
+        this.velocityY = 0;
+
+
+    };
+
+    // Обробляє удар між шаріками та контролером математично
+    this.collision = function() {
 
         // Loop over two controllers to see if puck has come in contact
         for (var i = 0; i < controllers.length; i++) {
@@ -156,5 +167,30 @@ function Ball() {
         }
 
     }
+    // Переміщає координати шаріка лівіше поля в стартову позицію
+    this.startPosLeft = function (){
+        ball.x = ball.startingPosX - 2*this.size;
+        ball.y = ball.startingPosY;
+        ball.velocityY = 0;
+        ball.velocityX = 0;
 
+
+    };
+    // Переміщає координати шаріка правіше поля в стартову позицію
+    this.startPosRight = function (){
+        ball.x = ball.startingPosX + 2*this.size;
+        ball.y = ball.startingPosY;
+        ball.velocityY = 0;
+        ball.velocityX = 0;
+
+
+    };
+
+}
+// допоміжна функція
+function rotate(x, y, sin, cos, reverse) {
+    return {
+        x: (reverse) ? (x * cos + y * sin) : (x * cos - y * sin),
+        y: (reverse) ? (y * cos - x * sin) : (y * cos + x * sin)
+    };
 }

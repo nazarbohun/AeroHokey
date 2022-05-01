@@ -26,11 +26,9 @@
 
          <div class="main__general">
             <div class="field" id="field">
-                  <!-- Потом удалить и создавать через JS -->
-<!--                  <div class="bit-ball bit-ball&#45;&#45;left" id="bit-user"></div>-->
-<!--                  <div class="bit-ball bit-ball&#45;&#45;right" id="bit-opponent"></div>-->
-<!--                  <div  class="bit-ball puck" id="puck"></div>-->
+               <div class="game-field">
 
+               </div>
             </div>
          </div>
 
@@ -67,26 +65,26 @@
       <!--Конец ИГРЫ-->
 
       <!--Победа-->
-      <div class="endgame">
-         <div class="endgame__context">
+      <div class="endgame" id="endgame_won">
+         <div class="endgame__context" >
             <div class="winner">You won!</div>
-            <a href="#" class="restart__btn">Restart</a>
+            <button class="restart__btn">Restart</button>
          </div>
       </div>
 
       <!--Поражение-->
-      <div class="endgame">
-         <div class="endgame__context">
+      <div class="endgame" id="endgame_lose">
+         <div class="endgame__context" >
             <div class="loser">You lose...</div>
-            <a href="#" class="restart__btn">Restart</a>
+            <button class="restart__btn">Restart</button>
          </div>
       </div>
 
       <!--Ничья-->
-      <div class="endgame">
+      <div class="endgame" id="endgame_draw">
          <div class="endgame__context">
             <div class="draw">Draw</div>
-            <a href="#" class="restart__btn">Restart</a>
+            <button class="restart__btn">Restart</button>
          </div>
       </div>
 
@@ -94,6 +92,8 @@
    <script src="./js/variables.js"></script>
    <script src="./js/ball.js"></script>
    <script src="./js/controller.js"></script>
+   <script src="./js/functions.js"></script>
+   <script src="./js/events.js"></script>
    <script src="./js/main.js"></script>
 
 </body>
