@@ -27,8 +27,8 @@ const restart = document.querySelectorAll('.restart__btn');
 * =============Env===============================
 * ===============================================
 */
-    const minuteEnv = 0,
-          secEnv = 10,
+    const minuteEnv = 1,
+          secEnv = 30,
           ballSizeEnv = 60,
           controllerSizeEnv = 80,
           frictionXEnv = 0.997,
