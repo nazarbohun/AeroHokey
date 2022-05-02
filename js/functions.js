@@ -37,19 +37,19 @@ const showScreenTimerReverse = function () {
 const showEdnGameWon = function ()  {
     hideAll();
 
-    endGameWon.style.display = 'block';
+    endGameWon.style.display = 'flex';
 }
 
 const showEdnGameLose = function ()  {
     hideAll();
 
-    endGameLose.style.display = 'block';
+    endGameLose.style.display = 'flex';
 }
 
 const showEdnGameDraw = function ()  {
     hideAll();
 
-    endGameDraw.style.display = 'block';
+    endGameDraw.style.display = 'flex';
 }
 
 const hideAll = function () {
