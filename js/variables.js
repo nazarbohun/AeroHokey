@@ -16,6 +16,7 @@ const btnStart = document.querySelector('#start-game');
 const screenWelcome = document.querySelector('#welcome');
 const screenGame = document.querySelector('#screen-game');
 const screenGoal = document.querySelector('#goal');
+const screenPause = document.querySelector('#pause');
 const screenTimerReverse = document.querySelector('#timer-reverse__block');
 const gameField = document.querySelector('.game-field');
 const endGameWon = document.querySelector('#endgame_won');
@@ -45,7 +46,8 @@ let timer = null,
     timerRevers = null,
     sec = secEnv,
     minute = minuteEnv,
-    go = false;
+    go = false,
+    isPause = null;
 /*
 * ===============================================
 * =============Допоміжні змінні==================

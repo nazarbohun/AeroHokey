@@ -24,6 +24,13 @@ const showGoalScreen = function () {
     screenGoal.style.display = 'block';
 
 }
+const showPauseScreen = function () {
+    hideAll();
+
+    screenGame.style.display = 'block'; // or 'none'
+    screenPause.style.display = 'block';
+
+}
 
 const showScreenTimerReverse = function () {
 
@@ -60,6 +67,7 @@ const hideAll = function () {
     endGameWon.style.display = 'none';
     endGameLose.style.display = 'none';
     endGameDraw.style.display = 'none';
+    screenPause.style.display = 'none';
 
 }
 
@@ -153,6 +161,7 @@ function startGame() {
     controller.create();
     controllerEnemy.create();
 
+    isPause = 0;
     mainLoop  = setInterval(game, 10);
 }
 
@@ -193,7 +202,7 @@ function goal() {
     showGoalScreen();
     stopTimer();
     clearInterval(timer);
-
+    isPause = null;
     if (ball.x === 0)
     {
         opponentScore++;
@@ -233,6 +242,7 @@ function goal() {
 
         controller.acceleration = 5;
         startTimer();
+        isPause = 0;
     },2000);
 
 
@@ -259,6 +269,7 @@ function endGame() {
     controller.removeHtmlElement();
     controllerEnemy.removeHtmlElement();
     ball.removeHtmlElement();
+    isPause = null;
     yourScore = 0;
     opponentScore = 0;
     totalScore = 0;
@@ -273,4 +284,21 @@ function restartGame() {
     go = false;
 
     timerReverse();
+}
+// Пауза гри
+function pause() {
+    if (isPause === 0)
+    {
+        clearInterval(mainLoop);
+        stopTimer();
+        clearInterval(timer);
+        isPause = 1;
+        showPauseScreen();
+    }else if (isPause === 1){
+        startTimer();
+        showGameScreen();
+        mainLoop  = setInterval(game, 10);
+        isPause = 0;
+    }
+
 }

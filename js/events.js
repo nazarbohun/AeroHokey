@@ -19,6 +19,9 @@ document.addEventListener("keydown", function(e) {
         if (e.keyCode === 37 && controller.acceleration < controller.maxSpeed) {
             controller.velocityX -= controller.acceleration;
         }
+        if (e.keyCode === 32 ) {
+            pause();
+        }
 
 
 });
